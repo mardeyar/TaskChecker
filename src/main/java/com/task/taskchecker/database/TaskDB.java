@@ -9,38 +9,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskDB implements TaskDAO {
-    private static final String SQL_SELECT = "SELECT taskId, taskName, taskInfo, taskStatus, dueDate FROM task_list";
-    private static final String SQL_SELECT_ONE = "SELECT taskId, taskName, taskInfo, taskStatus, dueDate FROM task_list WHERE taskId = ?";
-    private static final String SQL_INSERT = "INSERT INTO task_list(taskId, taskName, taskInfo, taskStatus, dueDate) VALUES (?,?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE task_list SET taskName=?, taskInfo=?, taskStatus=?, dueDate=? WHERE taskId = ?";
-    private static final String SQL_DELETE = "DELETE FROM task_list WHERE taskId = ?";
+    private static final String SQL_SELECT = "SELECT * FROM task_list";
+    private static final String SQL_SELECT_ONE = "SELECT * FROM task_list WHERE task_id = ?";
+    //private static final String SQL_INSERT = "INSERT INTO task_list(task_name, task_info, task_status, due_date) VALUES (?,?,?,?)";
+    private static final String SQL_UPDATE = "UPDATE task_list SET task_name=?, task_info=?, task_status=?, due_date=? WHERE task_id = ?";
+    private static final String SQL_DELETE = "DELETE FROM task_list WHERE task_id = ?";
 
     // Insert the methods from the TaskDAO here
     @Override
-    public int insert(Task task) throws SQLException {
+    public void insert(Task task) throws SQLException {
+
         // Pre-requisites for a DB connection
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        int resultSet = 0;
-
-        // If this code can run, the table is empty and code should break off
-        if (task.getTaskName() == null) {
-            return 0;
-        }
+        ResultSet resultSet = null;
 
         // Attempt some data insertion
         try {
             connection = getConnection();
-            preparedStatement = connection.prepareStatement(SQL_INSERT);
+            preparedStatement = connection.prepareStatement("INSERT INTO task_list(task_name, task_info, task_status, due_date) VALUES (?,?,?,?)");
 
             // This block runs a prepared statement to insert the data
-            preparedStatement.setInt(1, task.getTaskId());
-            preparedStatement.setString(2, task.getTaskName());
-            preparedStatement.setString(3, task.getTaskInfo());
-            preparedStatement.setString(4, task.getTaskStatus());
-            preparedStatement.setDate(5, (Date) task.getDueDate());
+            preparedStatement.setString(1, task.getTaskName());
+            preparedStatement.setString(2, task.getTaskInfo());
+            preparedStatement.setString(3, task.getTaskStatus());
+            preparedStatement.setDate(4, (Date) task.getDueDate());
 
-            resultSet = preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
         } catch (SQLSyntaxErrorException e) {
             System.err.println("SQL Syntax error: " + e.getMessage());
         } catch (Exception e) {
@@ -50,11 +45,10 @@ public class TaskDB implements TaskDAO {
             preparedStatement.close();
             connection.close();
         }
-        return resultSet;
     }
 
     @Override
-    public int update(Task task) throws SQLException {
+    public void update(Task task) throws SQLException {
         // Pre-requisites for a DB connection
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -80,11 +74,10 @@ public class TaskDB implements TaskDAO {
             preparedStatement.close();
             connection.close();
         }
-        return resultSet;
     }
 
     @Override
-    public int delete(int taskId) throws SQLException {
+    public void delete(int taskId) throws SQLException {
         // Pre-requisites for a DB connection
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -97,32 +90,36 @@ public class TaskDB implements TaskDAO {
             resultSet = preparedStatement.executeUpdate();
         } catch (SQLSyntaxErrorException e) {
             System.err.println("SQL Syntax error: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             // Close the connection to DB and prepared statement
             preparedStatement.close();
             connection.close();
         }
-        return resultSet;
     }
 
-    @Override
-    public int select(int taskId) throws SQLException {
-        return 0;
-    }
+//    @Override
+//    public Task select(int taskId) throws SQLException {
+//        return null;
+//    }
 
     @Override
     public List<Task> select() throws SQLException {
         // Pre-requisites for a DB connection
-        Connection connection;
-        PreparedStatement preparedStatement;
-        ResultSet resultSet;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
 
         List<Task> tasks = new ArrayList<>();
 
         try {
-            connection = getConnection();
+            connection = SQLConnection.getConnection();
             preparedStatement = connection.prepareStatement(SQL_SELECT);
             resultSet = preparedStatement.executeQuery();
+
+            System.out.println("Executing SQL query: " + SQL_SELECT);
+
 
             // While there is a next option in the resultSet
             while (resultSet.next()) {
@@ -136,6 +133,10 @@ public class TaskDB implements TaskDAO {
             }
         } catch (Exception e) {
             System.err.println("Exception: " + e.getMessage());
+        } finally {
+            if (resultSet != null) resultSet.close();
+            if (preparedStatement != null) preparedStatement.close();
+            if (connection != null) connection.close();
         }
         return tasks;
     }

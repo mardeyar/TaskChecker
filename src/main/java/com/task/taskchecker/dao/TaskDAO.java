@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface TaskDAO {
 
-    public int insert(Task task) throws SQLException;
-    public int update(Task task) throws SQLException;
-    public int delete(int taskId) throws SQLException;
-    public int select(int taskId) throws SQLException;
-    public List<Task> select() throws SQLException;
+    void insert(Task task) throws SQLException;
+    void update(Task task) throws SQLException;
+    void delete(int taskId) throws SQLException;
+    //public Task select(int taskId) throws SQLException;
+    List<Task> select() throws SQLException;
 }

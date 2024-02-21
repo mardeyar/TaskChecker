@@ -9,7 +9,8 @@ public class SQLConnection {
     private static String user = "root";
     private static String pass = "";
 
-    public static Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
         return DriverManager.getConnection(url, user, pass);
     }
 }
