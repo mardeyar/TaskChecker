@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,7 +21,8 @@ public class TaskServlet extends HttpServlet {
 
     private TaskDAO td;
     // Because the dueDate variable in each method is a String, need to convert to a Date object. Do this in all methods
-    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    // It will also need to be converted from that into a SQL date format
+    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
     @Override
     public void init() throws ServletException {
@@ -68,7 +70,8 @@ public class TaskServlet extends HttpServlet {
         String dueDateString = request.getParameter("dueDate");
 
         try {
-            Date dueDate = df.parse(dueDateString);
+            Date date = df.parse(dueDateString);
+            java.sql.Date dueDate = new java.sql.Date(date.getTime());
 
             Task newTask = new Task();
             newTask.setTaskName(taskName);
@@ -78,12 +81,11 @@ public class TaskServlet extends HttpServlet {
 
             td.insert(newTask);
         } catch (SQLException | ParseException e) {
-            System.out.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
 
         // Redirect right back to the main page
-        response.sendRedirect("test.jsp");
+        response.sendRedirect("index.jsp");
     }
 
     private void editTask(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -114,7 +116,7 @@ public class TaskServlet extends HttpServlet {
         int taskId = Integer.parseInt(request.getParameter("taskId"));
         try {
             td.delete(taskId);
-        } catch (SQLException e) {
+        } catch (SQLException | NumberFormatException e) {
             e.printStackTrace();
         }
         response.sendRedirect("index.jsp");
