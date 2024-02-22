@@ -17,7 +17,6 @@ import java.util.Date;
 import java.util.List;
 
 public class TaskServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
     private TaskDAO td;
     // Because the dueDate variable in each method is a String, need to convert to a Date object. Do this in all methods
@@ -65,7 +64,6 @@ public class TaskServlet extends HttpServlet {
 
     public void addTask(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String taskName = request.getParameter("taskName");
-        String taskInfo = request.getParameter("taskInfo");
         String taskStatus = request.getParameter("taskStatus");
         String dueDateString = request.getParameter("dueDate");
 
@@ -75,7 +73,6 @@ public class TaskServlet extends HttpServlet {
 
             Task newTask = new Task();
             newTask.setTaskName(taskName);
-            newTask.setTaskInfo(taskInfo);
             newTask.setTaskStatus(taskStatus);
             newTask.setDueDate(dueDate);
 
@@ -91,7 +88,6 @@ public class TaskServlet extends HttpServlet {
     private void editTask(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int taskId = Integer.parseInt(request.getParameter("taskId"));
         String taskName = request.getParameter("taskName");
-        String taskInfo = request.getParameter("taskInfo");
         String taskStatus = request.getParameter("taskStatus");
         String dueDateString = request.getParameter("dueDate");
 
@@ -101,7 +97,6 @@ public class TaskServlet extends HttpServlet {
             Task editTask = new Task();
             editTask.setTaskId(taskId);
             editTask.setTaskName(taskName);
-            editTask.setTaskInfo(taskInfo);
             editTask.setTaskStatus(taskStatus);
             editTask.setDueDate(dueDate);
 
