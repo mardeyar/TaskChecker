@@ -5,15 +5,13 @@ import java.util.Date;
 public class Task {
     private int taskId;
     private String taskName;
-    private String taskInfo;
     private String taskStatus;
     private Date dueDate;
 
     // Constructors
-    public Task(int taskId, String taskName, String taskInfo, String taskStatus, Date dueDate) {
+    public Task(int taskId, String taskName, String taskStatus, Date dueDate) {
         this.taskId = taskId;
         this.taskName = taskName;
-        this.taskInfo = taskInfo;
         this.taskStatus = taskStatus;
         this.dueDate = dueDate;
     }
@@ -35,14 +33,6 @@ public class Task {
 
     public void setTaskName(String taskName) {
         this.taskName = taskName;
-    }
-
-    public String getTaskInfo() {
-        return taskInfo;
-    }
-
-    public void setTaskInfo(String taskInfo) {
-        this.taskInfo = taskInfo;
     }
 
     public String getTaskStatus() {
@@ -67,7 +57,6 @@ public class Task {
         return "Task{" +
                 "taskId=" + taskId +
                 ", taskName='" + taskName + '\'' +
-                ", taskInfo='" + taskInfo + '\'' +
                 ", taskStatus='" + taskStatus + '\'' +
                 ", dueDate=" + dueDate +
                 '}';
