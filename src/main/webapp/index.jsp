@@ -34,27 +34,28 @@
             <td><%= task.getTaskStatus() %></td>
             <td><%= task.getDueDate() %></td>
             <td>
-                <a href="edit-task.jsp?id=${task.taskId}">Edit</a>
-                <a href="delete-task?id=${task.taskId}">Delete</a>
+                <form action="${pageContext.request.contextPath}/deleteTask" method="post">
+                    <input type="hidden" name="taskId" value="${task.getTaskId}">
+                    <button type="submit">Delete</button>
+                </form>
             </td>
         </tr>
         <% } %>
 
     </table>
-
-
 <%-- Section in the table designed for adding tasks --%>
 <form action="${pageContext.request.contextPath}/addTask" method="post">
-    <label for="taskName">Task name:</label>
-    <input type="text" id="taskName" name="taskName">
-    <label for="taskInfo">Task info:</label>
-    <input type="text" id="taskInfo" name="taskInfo">
-    <label for="taskStatus">Task status:</label>
-    <input type="text" id="taskStatus" name="taskStatus">
-    <label for="dueDate">Due date:</label>
-    <input type="date" id="dueDate" name="dueDate">
+    <label for="taskName"/>
+    <input type="text" id="taskName" name="taskName" placeholder="Task Name">
+    <label for="taskInfo"/>
+    <input type="text" id="taskInfo" name="taskInfo" placeholder="Task Info">
+    <label for="taskStatus"/>
+    <input type="text" id="taskStatus" name="taskStatus" placeholder="Task Status">
+    <label for="dueDate"/>
+    <input type="date" id="dueDate" name="dueDate" placeholder="Due Date">
     <button type="submit">Add Task</button>
 </form>
+
 </body>
 
 </html>
