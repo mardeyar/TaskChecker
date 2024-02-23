@@ -19,7 +19,7 @@ import java.util.List;
 public class TaskServlet extends HttpServlet {
 
     private TaskDAO td;
-    // Because the dueDate variable in each method is a String, need to convert to a Date object. Do this in all methods
+    // Because the dueDate variable in each method is a String, need to convert to a Date object.
     // It will also need to be converted from that into a SQL date format
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -64,7 +64,6 @@ public class TaskServlet extends HttpServlet {
 
     public void addTask(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String taskName = request.getParameter("taskName");
-        String taskStatus = request.getParameter("taskStatus");
         String dueDateString = request.getParameter("dueDate");
 
         try {
@@ -73,35 +72,23 @@ public class TaskServlet extends HttpServlet {
 
             Task newTask = new Task();
             newTask.setTaskName(taskName);
-            newTask.setTaskStatus(taskStatus);
             newTask.setDueDate(dueDate);
 
             td.insert(newTask);
         } catch (SQLException | ParseException e) {
             e.printStackTrace();
         }
-
-        // Redirect right back to the main page
         response.sendRedirect("index.jsp");
     }
 
     private void editTask(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int taskId = Integer.parseInt(request.getParameter("taskId"));
-        String taskName = request.getParameter("taskName");
-        String taskStatus = request.getParameter("taskStatus");
-        String dueDateString = request.getParameter("dueDate");
 
         try {
-            Date dueDate = df.parse(dueDateString);
-
             Task editTask = new Task();
             editTask.setTaskId(taskId);
-            editTask.setTaskName(taskName);
-            editTask.setTaskStatus(taskStatus);
-            editTask.setDueDate(dueDate);
-
-            td.update(editTask);
-        } catch (SQLException | ParseException e) {
+            td.update(taskId);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         response.sendRedirect("index.jsp");
