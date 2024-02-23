@@ -12,6 +12,7 @@
         <servlet-name>TaskServlet</servlet-name>
         <url-pattern>/addTask</url-pattern>
         <url-pattern>/deleteTask</url-pattern>
+        <url-pattern>/editTask</url-pattern>
     </servlet-mapping>
 
 </web-app>
