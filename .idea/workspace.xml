@@ -9,14 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="306cea27-495b-4f64-a3b2-0102e22a2d4f" name="Changes" comment="Commits">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="306cea27-495b-4f64-a3b2-0102e22a2d4f" name="Changes" comment="Removed unnecessary select method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/task/taskchecker/TaskServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/task/taskchecker/TaskServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/task/taskchecker/controller/edit-task.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/operation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/task/taskchecker/database/TaskDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/task/taskchecker/database/TaskDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/task/taskchecker/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/task/taskchecker/model/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +27,7 @@
         <option value="Class" />
         <option value="Jsp File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -67,11 +65,12 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -265,7 +264,11 @@
       <workItem from="1708522655136" duration="11918000" />
       <workItem from="1708537749577" duration="8237000" />
       <workItem from="1708558917985" duration="1885000" />
-      <workItem from="1708615853888" duration="6094000" />
+      <workItem from="1708615853888" duration="6209000" />
+      <workItem from="1708632682929" duration="2962000" />
+      <workItem from="1708644935450" duration="16144000" />
+      <workItem from="1708692792128" duration="651000" />
+      <workItem from="1708693463983" duration="7296000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1708176778227</created>
@@ -365,14 +368,118 @@
       <option name="project" value="LOCAL" />
       <updated>1708615952932</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Created JS file to allow inline task edits">
+      <created>1708623774009</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1708623774009</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Dropdown menu to select task status">
+      <created>1708623797830</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1708623797830</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Commit">
+      <created>1708623805716</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1708623805716</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Removed taskInfo">
+      <created>1708623814255</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1708623814255</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Removed taskInfo">
+      <created>1708623822451</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1708623822451</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Removed taskInfo">
+      <created>1708623833565</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1708623833565</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Icons for CRUD functions added">
+      <created>1708708444094</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1708708444094</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Screenshots for technical doc added">
+      <created>1708708457481</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1708708457481</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added background body image">
+      <created>1708708494793</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1708708494793</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added favicon for browser tab">
+      <created>1708708511802</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1708708511802</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Removed js file">
+      <created>1708708524419</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1708708524419</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Cleaned up code and added if statement to display message if no tasks exist in DB">
+      <created>1708708573064</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1708708573064</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Styling changes">
+      <created>1708708680667</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1708708680667</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Remove javax.servlet dependency">
+      <created>1708708701117</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1708708701117</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Removed unnecessary select method">
+      <created>1708708725688</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1708708725688</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="DB connection file" />
     <MESSAGE value="Task model written" />
     <MESSAGE value="Interface for task CRUD operations" />
     <MESSAGE value="Wrote a few CRUD operations" />
@@ -385,6 +492,23 @@
     <MESSAGE value="Fixed issue with date format preventing insert method from running properly" />
     <MESSAGE value="Added deleteTask mapping" />
     <MESSAGE value="Commits" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commits" />
+    <MESSAGE value="Created JS file to allow inline task edits" />
+    <MESSAGE value="Dropdown menu to select task status" />
+    <MESSAGE value="Commit" />
+    <MESSAGE value="Removed taskInfo" />
+    <MESSAGE value="Icons for CRUD functions added" />
+    <MESSAGE value="Screenshots for technical doc added" />
+    <MESSAGE value="Added background body image" />
+    <MESSAGE value="Added favicon for browser tab" />
+    <MESSAGE value="Removed js file" />
+    <MESSAGE value="Cleaned up code and added if statement to display message if no tasks exist in DB" />
+    <MESSAGE value="Styling changes" />
+    <MESSAGE value="Remove javax.servlet dependency" />
+    <MESSAGE value="Removed unnecessary select method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unnecessary select method" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
