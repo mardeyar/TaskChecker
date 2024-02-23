@@ -49,3 +49,6 @@ Once you have added some tasks, they will start to populate the table. If you ha
 If you no longer need the task displayed, you can click the red garbage can to delete the task from the database
 
 ![4](https://github.com/mardeyar/TaskChecker/assets/117761940/e46bbf4e-c1e9-4378-97b4-f55c7af06207)
+
+## License
+[MIT License](https://github.com/mardeyar/TaskChecker/blob/master/LICENSE)
