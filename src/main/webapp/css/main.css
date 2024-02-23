@@ -1,0 +1,137 @@
+body {
+    background-image: url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'Segoe UI Black', sans-serif;
+    font-size: 48px;
+    color: #232323;
+}
+
+#checker {
+    color: #5b5b5b;
+}
+
+table {
+    font-family: 'Ebrima', sans-serif;
+    border-spacing: 0;
+    border: 1px solid #464646;
+    box-shadow: 0 19px 13px -6px rgba(83,83,83,0.9);
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+#task_name_display {
+    width: 500px;
+}
+
+#task_status_display {
+    width: 148px;
+    border-left: 1px solid #464646;
+    text-align: center;
+}
+
+#due_date_display {
+    width: 150px;
+    border-left: 1px solid #464646;
+    text-align: center;
+}
+
+#update_btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    border-left: 1px solid #464646;
+}
+
+td {
+    padding: 10px;
+    color: #181818;
+}
+
+tr:nth-child(odd) {
+    background-color: #7D7D7D;
+}
+
+tr:nth-child(even) {
+    background-color: #A3A1A1;
+}
+
+#taskName {
+    padding: 10px;
+    width: 595px;
+    background-color: transparent;
+    border-right: 1px solid rgba(70, 70, 70, 0);
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
+    font-size: 14px;
+    font-family: 'Ebrima', sans-serif;
+}
+
+#dueDate {
+    padding: 10px;
+    background-color: transparent;
+    border-right: 1px solid rgba(70, 70, 70, 0.4);
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
+    width: 137px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+}
+
+#dueDate:hover {
+    cursor: pointer;
+}
+
+#add {
+    border: none;
+    background-color: transparent;
+    top: 4px;
+    left: 41px;
+    position: relative;
+}
+
+#bottom_td {
+    padding: 0;
+    background-color: #cecbcb;
+    border-top: 1px solid #464646;
+}
+
+input:focus {
+    outline: none;
+}
+
+#empty_list {
+    width: 900px;
+}
